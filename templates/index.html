@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    {{template "header" .}}
+
+    <body>
+        <div class="container">
+
+            {{template "navbar"}}
+
+            <!-- Main component for a primary marketing message or call to action -->
+            <div class="jumbotron">
+                <h3>成都</h3>
+            </div>
+
+        </div> <!-- /container -->
+
+        <div class="container">
+            <img class="img-responsive center-block" alt="Responsive image" src={{ .img }} >
+        </div>
+
+        {{template "footer"}}
+
+    </body>
+</html>
