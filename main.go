@@ -16,13 +16,6 @@ func main() {
 
 	router.LoadHTMLGlob("templates/*")
 
-	router.GET("/index", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"title": "Main website",
-		})
-
-	})
-
 	router.GET("/resources/:img", func(c *gin.Context) {
 		img := fmt.Sprintf("resources/%s", c.Param("img"))
 
@@ -36,12 +29,14 @@ func main() {
 
 	router.GET("/songs/:name", func(c *gin.Context) {
 		name := c.Param("name")
-		img := fmt.Sprintf("/resources/%s.png", name)
+		//img := fmt.Sprintf("/resources/%s.png", name)
+		cdn := "http://ofphfz209.bkt.clouddn.com/"
+		img := fmt.Sprintf("%s%s1.png", cdn, name)
 		c.HTML(http.StatusOK, "index.html", gin.H{
-			"song":        "成都",
-			"keywords":    "成都,赵雷,吉他谱",
-			"description": "成都,赵雷,吉他谱",
-			"img":         img,
+			"song":   "成都",
+			"singer": "赵雷",
+			"tags":   "深蓝雨",
+			"img":    img,
 		})
 	})
 
